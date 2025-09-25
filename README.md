@@ -11,7 +11,7 @@ Here I showcase projects that combine my experience as a **Front-End Developer**
 - 💻 Front-End Developer experienced in **React, TypeScript, Angular, and Vue**.  
 - 📊 Exploring the world of **Data Analysis & Engineering** with SQL, Python, and data visualization tools.  
 - 🎯 Passionate about creating interfaces that **look good, work fast, and tell a story with data**.  
-
+- SQL, Python (pandas), Tableau, Power BI, Data Quality, ETL, dbt, Airflow, Advanced Excel, Git, Docker, PostgreSQL, Snowflake, PySpark, Statistical Analysis, A/B testing
 ---
 
 ## 🛠️ Getting Started
