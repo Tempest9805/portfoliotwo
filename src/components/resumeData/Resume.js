@@ -3,10 +3,10 @@ import Title from "../home/Title";
 import Education from "./Education";
 import Skills from "./Skills";
 
-const Resume = () => {
+const ResumeData = () => {
   return (
     <section id="resume">
-      <Title title="My" subTitle="Software Developer Resume" />
+      <Title title="My" subTitle="Data Engineer Resume" />
       <Education />
       <Title title="My" subTitle="Skills" />
       <Skills />
@@ -14,4 +14,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default ResumeData;

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaAppStoreIos } from "react-icons/fa";
+import { FaDatabase } from "react-icons/fa";
 import { AiTwotoneAppstore } from "react-icons/ai";
 import { SiAntdesign } from "react-icons/si";
 import { BiCodeAlt } from "react-icons/bi";
@@ -11,22 +11,22 @@ const MyServices = () => {
       <ServicesCard
         icons={<BiCodeAlt />}
         title="Web Development"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
+        subTitle="React, TypeScript, Angular, and Vue"
       />
       <ServicesCard
         icons={<SiAntdesign />}
-        title="Web Design"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
+        title="Data Analysis"
+        subTitle="SQL, Python, R,  and data visualization tools"
       />
       <ServicesCard
         icons={<AiTwotoneAppstore />}
         title="Mobile Application"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
+        subTitle="Responsive design and cross-platform compatibility"
       />
       <ServicesCard
-        icons={<FaAppStoreIos />}
-        title="SEO"
-        subTitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, provident. Accusamus at dolorem expedita dicta."
+        icons={<FaDatabase />}
+        title="Data Engineering"
+        subTitle="Training in Data Engineering (Python, SQL, ETL). Content and projects constantly updated."
       />
     </div>
   );

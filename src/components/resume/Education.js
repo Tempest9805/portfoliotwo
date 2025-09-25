@@ -10,22 +10,18 @@ const Education = () => {
       <div className="col-span-9 md:col-span-4">
         <ResumeTitle title="Experience" icon={<MdWork />} />
         <ResumeCard
-          badge=""
-          title="Web Developer"
-          subTitle="Facebook Inc."
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
-        />
-        <ResumeCard
-          badge="2011 - 2012"
+          badge="2022 - 2025"
           title="Front-end Developer"
-          subTitle="Google Inc."
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          subTitle="Jazzgs - Business Solutions"
+          des="Crafted pixel‑perfect responsive UIs in React, Vue.js, Angular, Bootstrap and Tailwind based on user research and
+            accessibility best practices."
         />
         <ResumeCard
-          badge="2009 - 2010"
-          title="Senior Developer"
-          subTitle="ReactBD.com."
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          badge="2020 - 2021"
+          title="junior Developer"
+          subTitle="Human Resources System (UCR)"
+          des="Developed a PHP/MySQL‑based web application for HR record‑keeping, implementing CRUD
+            interfaces in .NET"
         />
       </div>
       <div className="w-full h-full hidden lgl:flex justify-center items-center">
@@ -34,22 +30,16 @@ const Education = () => {
       <div className="col-span-9 md:col-span-4">
         <ResumeTitle title="Education" icon={<GiGraduateCap />} />
         <ResumeCard
-          badge="2012 - 2014"
-          title="North South University"
-          subTitle="Dhaka"
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
-        />
-        <ResumeCard
-          badge="2015 - 2016"
-          title="Programming Course"
-          subTitle="UK"
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          badge="2018 - 2023"
+          title="Universidad de Costa Rica"
+          subTitle=""
+          des="Bachelor’s Degree in Business Informatics (Bachillerato en Informática Empresarial)  "
         />
         <ResumeCard
           badge="2018 - 2021"
-          title="MERN Stack Developer"
-          subTitle="Dhaka"
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          title="Scrum Foundation Professional Certificate"
+          subTitle="(SFPC)"
+          des=""
         />
       </div>
     </div>

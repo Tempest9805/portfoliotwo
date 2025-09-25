@@ -20,8 +20,10 @@ Here I showcase projects that combine my experience as a **Front-End Developer**
 ```bash
 npm start
 
-```bash
+Runs the app in development mode.  
+Open http://localhost:3000 to view it in the browser.
+
+Build for production
 npm run build
 
-```bash
 npm test

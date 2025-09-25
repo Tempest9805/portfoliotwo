@@ -12,9 +12,11 @@ import Projects from "./components/projects/Projects";
 import Blog from "./components/blog/Blog";
 import Contact from "./components/contact/Contact";
 import Sidenav from "./components/home/sidenav/Sidenav";
+import ResumeData from "./components/resumeData/Resume";
 
 const Home = () => {
   const [about, setAbout] = useState(true);
+  const [resumeData, setResumeData] = useState(false);
   const [resume, setResume] = useState(false);
   const [projects, setProjects] = useState(false);
   const [blog, setBlog] = useState(false);
@@ -76,6 +78,7 @@ const Home = () => {
             onClick={() =>
               setAbout(true) &
               setResume(false) &
+              setResumeData(false) &
               setProjects(false) &
               setBlog(false) &
               setContact(false)
@@ -92,11 +95,33 @@ const Home = () => {
               About
             </span>
           </span>
+          {/* Resume Data Engineer Icon */}
+          <span
+            onClick={() =>
+              setAbout(false) &
+              setResume(false) &
+              setResumeData(true) &
+              setProjects(false) &
+              setBlog(false) &
+              setContact(false)
+            }
+            className={`${
+              resumeData
+                ? "text-designColor"
+                : "w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
+            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+          >
+            <IoIosPaper />
+            <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+              Resume Data Engineer
+            </span>
+          </span>
           {/* Resume Icon */}
           <span
             onClick={() =>
               setAbout(false) &
               setResume(true) &
+              setResumeData(false) &
               setProjects(false) &
               setBlog(false) &
               setContact(false)
@@ -109,7 +134,7 @@ const Home = () => {
           >
             <IoIosPaper />
             <span className="text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl absolute left-0 translate-x-8 group-hover:translate-x-12 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
-              Resume
+              Resume Software
             </span>
           </span>
           {/* Project Icon */}
@@ -117,6 +142,7 @@ const Home = () => {
             onClick={() =>
               setAbout(false) &
               setResume(false) &
+              setResumeData(false) &
               setProjects(true) &
               setBlog(false) &
               setContact(false)
@@ -137,6 +163,7 @@ const Home = () => {
             onClick={() =>
               setAbout(false) &
               setResume(false) &
+              setResumeData(false) &
               setProjects(false) &
               setBlog(true) &
               setContact(false)
@@ -157,6 +184,7 @@ const Home = () => {
             onClick={() =>
               setAbout(false) &
               setResume(false) &
+              setResumeData(false) &
               setProjects(false) &
               setBlog(false) &
               setContact(true)
@@ -191,6 +219,7 @@ const Home = () => {
           <div className="w-full h-full lgl:hidden bg-transparent rounded-2xl flex flex-col gap-6">
             <About />
             <Resume />
+            <ResumeData />
             <Projects />
             <Blog />
             <Contact />
@@ -206,7 +235,15 @@ const Home = () => {
                 <About />
               </motion.div>
             )}
-
+            {resumeData && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ResumeData />
+              </motion.div>
+            )}
             {resume && (
               <motion.div
                 initial={{ opacity: 0 }}
