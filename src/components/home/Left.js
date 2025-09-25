@@ -1,9 +1,9 @@
 import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-
+import { BsCloudLightningFill} from "react-icons/bs";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import {  FiMail, FiSend } from "react-icons/fi";
-// import CV from "../../assets/Noor_Mohammad_resume.pdf";
+import CV from "../../assets/Daniel_Chaves_Developer_Resume.pdf";
 import { bannerImg } from "../../assets/index";
 
 const Left = () => {
@@ -43,10 +43,29 @@ const Left = () => {
             </a>
           </div>
         </div>
+        
         <div className="flex h-14">
-          
-          
-          <a href="https://wa.me/50683656462" target="_blank" className="w-full border-t-[1px] border-t-zinc-800 text-sm tracking-wide uppercase flex justify-center items-center gap-2 hover:text-designColor duration-300" rel="noreferrer">
+          <a
+            href={CV}
+            target="_blank"
+            className="w-1/2 border-t-[1px] borderRight border-t-zinc-800 text-sm tracking-wide uppercase  gap-2 hover:text-designColor duration-300"
+            rel="noreferrer"
+          >
+            <button className="w-full h-full flex justify-center items-center gap-2">
+              Data Analyst CV <BsCloudLightningFill />
+            </button>
+          </a>
+          <a
+            href={CV}
+            target="_blank"
+            className="w-1/2 border-t-[1px] borderRight border-t-zinc-800 text-sm tracking-wide uppercase  gap-2 hover:text-designColor duration-300"
+            rel="noreferrer"
+          >
+            <button className="w-full h-full flex justify-center items-center gap-2">
+              Developer CV <BsCloudLightningFill />
+            </button>
+          </a>
+          <a href="https://wa.me/50683656462" target="_blank" className="w-1/2 border-t-[1px] border-t-zinc-800 text-sm tracking-wide uppercase flex justify-center items-center gap-2 hover:text-designColor duration-300" rel="noreferrer">
             Contact me <FiSend />
           </a>
         </div>

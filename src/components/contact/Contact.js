@@ -8,19 +8,19 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [messages, setMessages] = useState("");
 
-  // ================= Error Messages Start here =================
   const [errClientName, setErrClientName] = useState(false);
   const [errEmail, setErrEmail] = useState(false);
-  const [errMessages, setErrMessage] = useState(false);
-  // ================= Error Messages End here ===================
-  const [seuccessMsg, setSuccessMsg] = useState("");
-  // ================= Email Validation Start here ===============
-  const EmailValidation = (email) => {
+  const [errMessages, setErrMessages] = useState(false);
+
+  const [successMsg, setSuccessMsg] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const emailValidation = (email) => {
     return String(email)
       .toLowerCase()
       .match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
   };
-  // ================= Email Validation End here =================
 
   const handleName = (e) => {
     setClientName(e.target.value);
@@ -32,125 +32,170 @@ const Contact = () => {
   };
   const handleMessages = (e) => {
     setMessages(e.target.value);
-    setErrMessage(false);
+    setErrMessages(false);
   };
 
-  const handleSend = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!clientName) {
+    setSubmitError("");
+    setSuccessMsg("");
+
+    // Validations
+    let valid = true;
+    if (!clientName.trim()) {
       setErrClientName(true);
+      valid = false;
     }
-    if (!email) {
+    if (!email.trim() || !emailValidation(email)) {
       setErrEmail(true);
-    } else {
-      if (!EmailValidation(email)) {
-        setErrEmail(true);
-      }
+      valid = false;
     }
-    if (!messages) {
-      setErrMessage(true);
+    if (!messages.trim()) {
+      setErrMessages(true);
+      valid = false;
     }
-    if (clientName && email && EmailValidation(email) && messages) {
-      axios.post("https://getform.io/f/e18ee560-5133-4cfe-9a48-eddb6f012a9f", {
+    if (!valid) return;
+
+    // Send
+    setLoading(true);
+    try {
+      const payload = {
         name: clientName,
         email: email,
         message: messages,
+      };
+    
+      await axios.post("https://getform.io/f/bqoeywpb", payload, {
+        headers: { "Content-Type": "application/json" },
       });
+
       setSuccessMsg(
-        `Hello dear ${clientName}, Your messages has been sent successfully. Thank you for your time!`
+        `Hello ${clientName}, your message has been sent successfully. Thank you for your time!`
       );
       setClientName("");
       setEmail("");
       setMessages("");
+    } catch (err) {
+      console.error("Send error:", err);
+      setSubmitError("There was an error sending your message. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <div className="w-full">
       <Title title="Get" subTitle="in Touch" />
       <div className="p-6 w-full flex flex-col md:flex-row justify-between gap-4 md:gap-10 lgl:gap-20">
         <div className="w-full lgl:w-1/2">
           <p className="flex gap-6 justify-between w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
-            <span className="bg-designColor text-gray-700 text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
+            <span className="bg-designColor text-[#ccc] text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
               Address:
             </span>
-            Muscat, Oman
+            Alajuela, Costa Rica
           </p>
           <p className="flex justify-between w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
-            <span className="bg-designColor text-gray-700 text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
+            <span className="bg-designColor text-[#ccc] text-sm  font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
               Phone:
             </span>
-            +968 97859628
+            +506 83656462
           </p>
         </div>
         <div className="w-full lgl:w-1/2">
-          <p className="flex justify-between lgl:gap-6 w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
-            <span className="bg-designColor text-gray-700 text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
+          <p className="flex justify-between lgl:gap-6 w-full text-sm text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
+            <span className="bg-designColor text-[#ccc] text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
               Email:
             </span>
-            noor.jsdivs@gmail.com
+            danielchavesvargas98@gmail.com
           </p>
           <p className="flex justify-between w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
-            <span className="bg-designColor text-gray-700 text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
+            <span className="bg-designColor text-[#ccc] text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
               Freelance:
             </span>
-            Abailable
+            Available
           </p>
         </div>
       </div>
+
       <div className="w-full mt-10">
         <Title title="Send" subTitle="Messages" />
-        {seuccessMsg ? (
-          <p className="text-center text-base font-titleFont p-20 text-designColor">
-            {seuccessMsg}
+
+        {successMsg ? (
+          <p className="text-center text-base font-titleFont p-8 text-designColor">
+            {successMsg}
           </p>
         ) : (
           <form
-            id="form"
-            action="https://getform.io/f/e18ee560-5133-4cfe-9a48-eddb6f012a9f"
-            method="POST"
+            id="contact-form"
+            onSubmit={handleSubmit}
             className="p-6 flex flex-col gap-6"
+            noValidate
           >
             <div className="w-full flex flex-col lgl:flex-row gap-4 lgl:gap-10 justify-between">
-              <input
-                onChange={handleName}
-                value={clientName}
-                className={`${
-                  errClientName
-                    ? "border-red-600 focus-visible:border-red-600"
-                    : "border-zinc-600 focus-visible:border-designColor"
-                } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300`}
-                // className="w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 border-zinc-600 focus-visible:border-designColor outline-none duration-300"
-                type="text"
-                placeholder="Full Name"
-              />
-              <input
-                onChange={handleEmail}
-                value={email}
-                className={`${
-                  errEmail
-                    ? "border-red-600 focus-visible:border-red-600"
-                    : "border-zinc-600 focus-visible:border-designColor"
-                } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300`}
-                type="email"
-                placeholder="Email Address"
-              />
+              <div className="w-full">
+                <input
+                  name="name"
+                  onChange={handleName}
+                  value={clientName}
+                  className={`${
+                    errClientName
+                      ? "border-red-600 focus-visible:border-red-600"
+                      : "border-zinc-600 focus-visible:border-designColor"
+                  } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300`}
+                  type="text"
+                  placeholder="Full Name"
+                  aria-invalid={errClientName}
+                  aria-label="Full name"
+                />
+                {errClientName && <p className="text-sm text-red-500 mt-1">Please enter your name.</p>}
+              </div>
+
+              <div className="w-full">
+                <input
+                  name="email"
+                  onChange={handleEmail}
+                  value={email}
+                  className={`${
+                    errEmail
+                      ? "border-red-600 focus-visible:border-red-600"
+                      : "border-zinc-600 focus-visible:border-designColor"
+                  } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300`}
+                  type="email"
+                  placeholder="Email Address"
+                  aria-invalid={errEmail}
+                  aria-label="Email address"
+                />
+                {errEmail && <p className="text-sm text-red-500 mt-1">Enter a valid email.</p>}
+              </div>
             </div>
-            <textarea
-              onChange={handleMessages}
-              value={messages}
-              className={`${
-                errMessages
-                  ? "border-red-600 focus-visible:border-red-600"
-                  : "border-zinc-600 focus-visible:border-designColor"
-              } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300 resize-none`}
-              placeholder="Your Message"
-              rows="4"
-            ></textarea>
+
+            <div>
+              <textarea
+                name="message"
+                onChange={handleMessages}
+                value={messages}
+                className={`${
+                  errMessages
+                    ? "border-red-600 focus-visible:border-red-600"
+                    : "border-zinc-600 focus-visible:border-designColor"
+                } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300 resize-none`}
+                placeholder="Your Message"
+                rows="4"
+                aria-invalid={errMessages}
+                aria-label="Your message"
+              />
+              {errMessages && <p className="text-sm text-red-500 mt-1">Please enter a message.</p>}
+            </div>
+
+            {submitError && <p className="text-sm text-red-500">{submitError}</p>}
+
             <button
-              onClick={handleSend}
+              type="submit"
+              disabled={loading}
               className="text-base w-44 flex items-center gap-1 text-gray-200 hover:text-designColor duration-200"
+              aria-busy={loading}
             >
-              Send Message{" "}
+              {loading ? "Sending..." : "Send Message"}
               <span className="mt-1 text-designColor">
                 <FiSend />
               </span>

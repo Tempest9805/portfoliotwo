@@ -10,22 +10,24 @@ const Education = () => {
       <div className="col-span-9 md:col-span-4">
         <ResumeTitle title="Experience" icon={<MdWork />} />
         <ResumeCard
-          badge=""
-          title="Web Developer"
-          subTitle="Facebook Inc."
-          des="esto"
+          badge="2025 (Project)"
+          title="Credit Risk & Data Quality Dashboard"
+          subTitle="Personal Project"
+          des="End-to-end pipeline for credit risk analysis: data cleansing and validation in SQL, feature engineering and logistic regression modeling in Python. Interactive Tableau dashboard showing PD by segment and a data-quality panel. Includes reproducible scripts and an executive summary with actionable recommendations."
         />
+
         <ResumeCard
-          badge="2011 - 2012"
-          title="Front-end Developer"
-          subTitle="Google Inc."
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          badge="2025 (Project)"
+          title="Fraud / Anomaly Detection"
+          subTitle="Personal Project"
+          des="Fraud and anomaly detection on transaction data using SQL and Python: rolling-window features, z-score profiling and Isolation Forest to flag suspicious activity. Monitoring dashboard in Power BI with alerts and merchant/channel metrics. Deliverables include ETL pipeline, notebooks and alert export scripts."
         />
+
         <ResumeCard
-          badge="2009 - 2010"
-          title="Senior Developer"
-          subTitle="ReactBD.com."
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          badge="2025 (Project)"
+          title="Customer Segmentation & Campaign Response"
+          subTitle="Personal Project"
+          des="Customer segmentation (RFM + k-means) to optimize targeting. ETL in SQL, advanced Excel pivots and validations, Tableau visualizations and campaign response simulation with estimated ROI per segment. Deliverables: workbook, reproducible scripts and actionable tactical recommendations."
         />
       </div>
       <div className="w-full h-full hidden lgl:flex justify-center items-center">
@@ -34,22 +36,22 @@ const Education = () => {
       <div className="col-span-9 md:col-span-4">
         <ResumeTitle title="Education" icon={<GiGraduateCap />} />
         <ResumeCard
-          badge="2012 - 2014"
-          title="North South University"
-          subTitle="Dhaka"
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          badge="(in progress)"
+          title="Data Engineer Technician (Técnico en Data Engineer)"
+          subTitle="CENFOTEC, Costa Rica"
+          des=""
         />
         <ResumeCard
-          badge="2015 - 2016"
-          title="Programming Course"
-          subTitle="UK"
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          badge="2018 - 2023"
+          title="Universidad de Costa Rica"
+          subTitle=""
+          des="Bachelor’s Degree in Business Informatics (Bachillerato en Informática Empresarial)  "
         />
         <ResumeCard
           badge="2018 - 2021"
-          title="MERN Stack Developer"
-          subTitle="Dhaka"
-          des="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, itaque ipsa quae!"
+          title="Scrum Foundation Professional Certificate"
+          subTitle="(SFPC)"
+          des=""
         />
       </div>
     </div>
