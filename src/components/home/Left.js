@@ -10,7 +10,7 @@ import { bannerImg } from "../../assets/index";
 
 const Left = () => {
   const [text] = useTypewriter({
-    words: ["Web Developer", "Full Stack Developer", "UI Designer"],
+    words: ["Web Developer", "Data Engineer", "Data Analyst"],
     loop: true,
     typeSpeed: 30,
     deleteSpeed: 20,
@@ -28,7 +28,7 @@ const Left = () => {
       </div>
       <div className="w-full h-2/5 flex flex-col justify-between border-t-0 rounded-bl-xl rounded-br-xl">
         <div className="flex flex-col items-center gap-2 py-10">
-          <h1 className="text-textColor text-4xl font-semibold">John Doe</h1>
+          <h1 className="text-textColor text-4xl font-semibold">Daniel Chaves Vargas</h1>
           <p className="text-base text-designColor tracking-wide">
             {text}
             <Cursor cursorBlinking="false" cursorStyle="|" />
