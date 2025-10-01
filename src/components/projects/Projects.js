@@ -5,7 +5,8 @@ import {
   workImgAngularList,
   workImgVueCarousel,
   workImgVueWeb,
-  workImgAngularEpos
+  workImgAngularEpos,
+  workImgpowerBiProyect
 
 } from "../../assets";
 import Title from "../home/Title";
@@ -18,21 +19,24 @@ const Projects = () => {
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 lgl:gap-10">
         <div className="px-6">
           <ProjectsCard
-            title="Blog Website"
-            category="Website"
-            image={workImgPodcast}
+            title="Data Analist Proyect"
+            category="Power Bi\ SQL \ Python"
+            image={workImgpowerBiProyect}
+            url = {'https://github.com/Tempest9805/credit-risk-project?tab=readme-ov-file'}
           />
           <ProjectsCard
-            title="Business Card Design"
-            category="Design"
+            title="Podcast Website"
+            category="Website"
             image={workImgPodcast}
+            url = {'https://podcast-ejemplo-enppovpee-tempest9805.vercel.app/'}
           />
         </div>
         <div className="px-6">
           <ProjectsCard
-            title="Responsive website"
-            category="E-commerce"
+            title="Podcast Website"
+            category="Website"
             image={workImgPodcast}
+            url = {'https://podcast-ejemplo-enppovpee-tempest9805.vercel.app/'}
           />
         </div>
       </div>
