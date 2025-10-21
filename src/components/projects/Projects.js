@@ -24,20 +24,20 @@ const Projects = () => {
             image={workImgpowerBiProyect}
             url = {'https://github.com/Tempest9805/credit-risk-project?tab=readme-ov-file'}
           />
-          <ProjectsCard
+          {/* <ProjectsCard
             title="Podcast Website"
             category="Website"
             image={workImgPodcast}
             url = {'https://podcast-ejemplo-enppovpee-tempest9805.vercel.app/'}
-          />
+          /> */}
         </div>
         <div className="px-6">
-          <ProjectsCard
+          {/* <ProjectsCard
             title="Podcast Website"
             category="Website"
             image={workImgPodcast}
             url = {'https://podcast-ejemplo-enppovpee-tempest9805.vercel.app/'}
-          />
+          /> */}
         </div>
       </div>
 
